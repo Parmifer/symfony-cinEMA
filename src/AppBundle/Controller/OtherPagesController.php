@@ -8,10 +8,13 @@ class OtherPagesController extends Controller
 {
     public function showAboutAction()
     {
-        $createurs = array();
+        $createurs = array(
+            'Yann BUTSCHER',
+            'Lucile DECROZANT-TRIQUENAUX'
+        );
         
         return $this->render('AppBundle:OtherPages:about.html.twig', array(
-            $createurs
+            'createurs' => $createurs
         ));
     }
 
