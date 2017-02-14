@@ -1,0 +1,7 @@
+about:
+    path:     about
+    defaults: { _controller: AppBundle:OtherPages:showAbout }
+
+legal_mentions:
+    path:     legalMentions
+    defaults: { _controller: AppBundle:OtherPages:showLegalMentions }
