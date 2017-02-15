@@ -63,4 +63,13 @@ class Genre
     {
         return $this->id;
     }
+    
+    /**
+     * Retourne une chaine correspondant au genre de l'objet courrant.
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->libelle;
+    }
 }

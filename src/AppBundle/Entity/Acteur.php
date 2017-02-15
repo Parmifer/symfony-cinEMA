@@ -142,4 +142,13 @@ class Acteur
     {
         return $this->extFilm;
     }
+    
+    /**
+     * Retourne une chaine correspondant à l'acteur de l'objet courrant.
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->prenom . ' ' . $this->nom;
+    }
 }

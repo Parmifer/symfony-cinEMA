@@ -6,7 +6,7 @@
     <table>
         <tbody>
             <tr>
-                <th>Libelle</th>
+                <th>Libellé</th>
                 <td>{{ genre.libelle }}</td>
             </tr>
             <tr>
@@ -18,14 +18,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('genre_index') }}">Back to the list</a>
+            <a href="{{ path('genre_index') }}">Revenir à la liste</a>
         </li>
         <li>
-            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">Edit</a>
+            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">Éditer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>
