@@ -40,7 +40,7 @@ INSERT INTO film (id, titre, synopsis, date_sortie, ext_realisateur_id, ext_genr
 ),
 (
     3,
-    'La strada'
+    'La strada',
     'Gelsomina, une femme enfant naive et généreuse, a été vendue par sa mère à un hercule de foire brutal et obtus, Zampano, qui accomplit un numéro de briseur de chaines sur les places publiques.<br>A bord d\'un étrange équipage - une moto à trois roues aménagée en roulotte - le couple sillonne les routes d\'Italie, menant la rude et triste vie des forains. Zampano ne cesse de rudoyer sa compagne et de la tromper sans vergogne. Elle s\'efforce pourtant de lui complaire avec une touchante obstination.<br>Surgit un autre saltimbanque, un violoniste-poète-philosophe-farceur : Il Matto ("Le Fou"). Il agace à plaisir le pauvre Zampano et raconte à Gelsomina de très belles et très édifiantes histoires sous forme de paraboles. Exaspéré, Zampano finit un jour par le tuer.<br>Le temps passe... Gelsomina, prostrée, ne peut se consoler de la mort du "Fou". Zampano l\'abandonne sur la route. Des années plus tard, il apprend qu\'elle est morte. Alors, pour la première fois de sa vie, il pleure.',
     '1954-02-02 12:00:00',
     2,
