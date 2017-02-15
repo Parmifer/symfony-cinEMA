@@ -1,3 +1,19 @@
+app_genre:
+    resource: "@AppBundle/Controller/GenreController.php"
+    type:     annotation
+
+app_acteur:
+    resource: "@AppBundle/Controller/ActeurController.php"
+    type:     annotation
+
+app_realisateur:
+    resource: "@AppBundle/Controller/RealisateurController.php"
+    type:     annotation
+
+app_film:
+    resource: "@AppBundle/Controller/FilmController.php"
+    type:     annotation
+
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix: /

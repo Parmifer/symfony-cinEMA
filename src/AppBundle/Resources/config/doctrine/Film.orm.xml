@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Film" table="film">
+    <indexes>
+      <index name="ext_realisateur_id" columns="ext_realisateur_id"/>
+      <index name="ext_genre_id" columns="ext_genre_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="titre" type="text" column="titre" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="synopsis" type="text" column="synopsis" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="duree" type="time" column="duree" nullable="true"/>
+    <field name="dateSortie" type="datetime" column="date_sortie" nullable="false"/>
+    <many-to-one field="extRealisateur" target-entity="Realisateur" fetch="LAZY">
+      <join-columns>
+        <join-column name="ext_realisateur_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="extGenre" target-entity="Genre" fetch="LAZY">
+      <join-columns>
+        <join-column name="ext_genre_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="extActeur" target-entity="Acteur" mapped-by="extFilm" fetch="LAZY"/>
+  </entity>
+</doctrine-mapping>

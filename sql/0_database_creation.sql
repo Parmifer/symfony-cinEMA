@@ -20,6 +20,12 @@ CREATE TABLE acteur (
     PRIMARY KEY (id)
 );
 
+CREATE TABLE genre (
+    id INT AUTO_INCREMENT,
+    libelle TINYTEXT,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE film (
     id INT AUTO_INCREMENT,
     titre TINYTEXT NOT NULL,
@@ -27,8 +33,10 @@ CREATE TABLE film (
     duree TIME,
     date_sortie DATETIME NOT NULL,
     ext_realisateur_id INT,
+    ext_genre_id INT,
     PRIMARY KEY (id),
-    FOREIGN KEY(ext_realisateur_id) REFERENCES realisateur(id)
+    FOREIGN KEY(ext_realisateur_id) REFERENCES realisateur(id),
+    FOREIGN KEY(ext_genre_id) REFERENCES genre(id)
 );
 
 CREATE TABLE acteur_jouer_film (
