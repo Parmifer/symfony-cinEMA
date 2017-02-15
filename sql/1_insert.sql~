@@ -55,7 +55,7 @@ INSERT INTO film (id, titre, synopsis, date_sortie, ext_realisateur_id, ext_genr
     3
 );
 
-INSERT INTO acteur_jouer_film (ext_film_id, ext_acteur_id) VALUES
+INSERT INTO acteur_jouer_film (ext_acteur_id, ext_film_id) VALUES
 (1, 1),
 (1, 2),
 (2, 3),

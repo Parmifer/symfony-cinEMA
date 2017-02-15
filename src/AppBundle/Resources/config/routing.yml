@@ -5,3 +5,7 @@ about:
 legal_mentions:
     path:     legalMentions
     defaults: { _controller: AppBundle:OtherPages:showLegalMentions }
+    
+accueil:
+    path:     /
+    defaults: { _controller: AppBundle:OtherPages:index }
