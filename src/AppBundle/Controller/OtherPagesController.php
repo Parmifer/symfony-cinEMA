@@ -7,9 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class OtherPagesController extends Controller
 {
     public function showAboutAction()
-    {
-        
-        
+    {             
         $createurs = array(
             'Yann BUTSCHER',
             'Lucile DECROZANT-TRIQUENAUX'

@@ -1,0 +1,7 @@
+REALISATEUR: id_real, nom, prenom
+:
+ACTEUR: id_acteur, nom, prenom
+
+REALISER, 1N REALISATEUR, 11 FILM
+FILM: id_film, titre, synopsis, duree, date_sortie
+JOUER, 0N FILM, 1N ACTEUR
