@@ -42,9 +42,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="/movies">Films</a></li>
-                        <li><a href="/directors">Réalisateurs</a></li>
-                        <li><a href="/actors">Acteurs</a></li>
+                        <li><a href={{ path('film_index') }}>Films</a></li>
+                        <li><a href={{ path('realisateur_index') }}>Réalisateurs</a></li>
+                        <li><a href={{ path('acteur_index') }}>Acteurs</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <button type="button" class="btn btn-default navbar-btn">Ajouter un film</button>
@@ -54,7 +54,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/profile">Profil</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="/logout">Se déconnecter</a></li>
+                                <li><a href="/deconnexion">Se déconnecter</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -77,8 +77,8 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <p><span>Liens utiles&nbsp;:</span></p>
-                        <p><a href="/about">À propos</a></p>
-                        <p><a href="/legalMentions">Informations légales</a></p>
+                        <p><a href={{ path('aPropos') }}>À propos</a></p>
+                        <p><a href={{ path('mentionsLegales') }}>Informations légales</a></p>
                     </div>
                 </div>
             </div>
