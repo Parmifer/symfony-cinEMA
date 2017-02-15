@@ -1,0 +1,11 @@
+ACTEUR: id_acteur, nom, prenom
+JOUER, 0N FILM, 1N ACTEUR
+:
+
+REALISER, 1N REALISATEUR, 11 FILM
+FILM: id_film, titre, synopsis, duree, date_sortie
+AVOIR_POUR, 11 FILM, 1N GENRE
+
+REALISATEUR: id_real, nom, prenom
+:
+GENRE: id_genre, libelle
