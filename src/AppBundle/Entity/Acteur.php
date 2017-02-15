@@ -38,15 +38,7 @@ class Acteur
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", inversedBy="extActeur")
-     * @ORM\JoinTable(name="acteur_jouer_film",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="ext_acteur_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="ext_film_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Film", mappedBy="extActeur")
      */
     private $extFilm;
 
