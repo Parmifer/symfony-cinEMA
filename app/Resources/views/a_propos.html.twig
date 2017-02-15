@@ -4,5 +4,20 @@
 
 {% block body %}
 <h1>À propos</h1>
-<p>Ce site est fait par une équipe d'étudiants plutôt stylés.</p>
+<div class="well well-lg">Ce site est fait par une équipe d'étudiants plutôt stylés.</div>
+
+<div class="row">
+{% for createur in createurs %}
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 cinema-createur">
+        <div class="thumbnail">
+            <img src="{{ createur.image }}" alt="Avatar de {{ createur.nom }}">
+            <div class="caption">
+                <h3>{{ createur.nom }}</h3>
+                <p>{{ createur.description }}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
 {% endblock %}

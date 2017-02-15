@@ -4,9 +4,11 @@ html {
     min-height: 100%;
     position: relative;
 }
+
 body {
-    margin-bottom: 60px;
+    margin-bottom: 130px;
 }
+
 .footer {
     background-color: #f5f5f5;
     bottom: 0;
@@ -15,6 +17,16 @@ body {
     width: 100%;
     padding: 20px 0;
 }
+
 body > .container {
     padding-top: 60px
+}
+
+.cinema-createur {
+    height: 550px;
+    padding-bottom: 15px;
+}
+
+.cinema-createur > .thumbnail {
+    height: 100%;
 }
