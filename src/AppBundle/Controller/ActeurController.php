@@ -34,7 +34,7 @@ class ActeurController extends Controller
     /**
      * Creates a new acteur entity.
      *
-     * @Route("/new", name="acteur_new")
+     * @Route("/nouveau", name="acteur_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -76,7 +76,7 @@ class ActeurController extends Controller
     /**
      * Displays a form to edit an existing acteur entity.
      *
-     * @Route("/{id}/edit", name="acteur_edit")
+     * @Route("/{id}/edition", name="acteur_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Acteur $acteur)

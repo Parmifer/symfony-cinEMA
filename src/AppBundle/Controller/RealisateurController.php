@@ -34,7 +34,7 @@ class RealisateurController extends Controller
     /**
      * Creates a new realisateur entity.
      *
-     * @Route("/new", name="realisateur_new")
+     * @Route("/nouveau", name="realisateur_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -76,7 +76,7 @@ class RealisateurController extends Controller
     /**
      * Displays a form to edit an existing realisateur entity.
      *
-     * @Route("/{id}/edit", name="realisateur_edit")
+     * @Route("/{id}/edition", name="realisateur_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Realisateur $realisateur)

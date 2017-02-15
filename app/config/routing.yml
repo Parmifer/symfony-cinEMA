@@ -15,5 +15,5 @@ app_film:
     type:     annotation
 
 app:
-    resource: "@AppBundle/Resources/config/routing.yml"
-    prefix: /
+    resource: "@AppBundle/Controller/MainController.php"
+    type:     annotation

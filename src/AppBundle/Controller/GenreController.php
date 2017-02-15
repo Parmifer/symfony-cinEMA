@@ -34,7 +34,7 @@ class GenreController extends Controller
     /**
      * Creates a new genre entity.
      *
-     * @Route("/new", name="genre_new")
+     * @Route("/nouveau", name="genre_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -76,7 +76,7 @@ class GenreController extends Controller
     /**
      * Displays a form to edit an existing genre entity.
      *
-     * @Route("/{id}/edit", name="genre_edit")
+     * @Route("/{id}/edition", name="genre_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Genre $genre)

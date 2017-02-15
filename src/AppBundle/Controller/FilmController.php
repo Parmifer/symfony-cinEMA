@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Film;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Film controller.
@@ -34,7 +35,7 @@ class FilmController extends Controller
     /**
      * Creates a new film entity.
      *
-     * @Route("/new", name="film_new")
+     * @Route("/nouveau", name="film_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -76,7 +77,7 @@ class FilmController extends Controller
     /**
      * Displays a form to edit an existing film entity.
      *
-     * @Route("/{id}/edit", name="film_edit")
+     * @Route("/{id}/edition", name="film_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Film $film)
