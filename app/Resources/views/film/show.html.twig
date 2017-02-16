@@ -33,7 +33,7 @@
             <a href="{{ path('film_index') }}">Revenir à la liste</a>
         </li>
         <li>
-            <a href="{{ path('film_edit', { 'id': film.id }) }}">Éditer</a>
+            <a href="{{ path('film_edit', { 'slug': film.slug }) }}">Éditer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
