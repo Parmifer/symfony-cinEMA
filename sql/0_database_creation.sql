@@ -2,9 +2,9 @@
  * Author:  parmifer
  * Created: 15 févr. 2017
  */
-CREATE DATABASE cinema;
+CREATE DATABASE tp_symfony_cinema;
 
-USE cinema;
+USE tp_symfony_cinema;
 
 CREATE TABLE realisateur (
     id INT AUTO_INCREMENT,
