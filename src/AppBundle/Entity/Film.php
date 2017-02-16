@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Film
@@ -16,15 +17,34 @@ class Film
     /**
      * @var string
      *
-     *
-     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255,
+     *      minMessage = "Le titre doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le titre ne peux pas exéder {{ limit }} caractères"
+     * )
      * @ORM\Column(name="titre", type="text", length=255, nullable=false)
      */
     private $titre;
+    
 
     /**
+     * @var string 
+     * 
+     * @Gedmo\Slug(fields={"titre"}, updatable=false, separator="-")
+     * @ORM\Column(name="slug", type="text", length=255, nullable = true)
+     */
+    private $slug;
+    
+    /**
      * @var string
-     *
+     * 
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 60000,
+     *      minMessage = "Le synopsis doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le synopsis ne peux pas exéder {{ limit }} caractères"
+     * )
      * @ORM\Column(name="synopsis", type="text", length=65535, nullable=true)
      */
     private $synopsis;
@@ -32,6 +52,7 @@ class Film
     /**
      * @var \DateTime
      *
+     * @Assert\DateTime()
      * @ORM\Column(name="duree", type="time", nullable=true)
      */
     private $duree;
@@ -39,6 +60,7 @@ class Film
     /**
      * @var \DateTime
      *
+     * @Assert\DateTime()
      * @ORM\Column(name="date_sortie", type="datetime", nullable=false)
      */
     private $dateSortie;
@@ -95,7 +117,6 @@ class Film
         $this->extActeur = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     /**
      * Set titre
      *
@@ -118,6 +139,28 @@ class Film
     public function getTitre()
     {
         return $this->titre;
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Film
+     */
+    function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
