@@ -30,6 +30,16 @@ class GenreController extends Controller
             'genres' => $genres,
         ));
     }
+    
+    public function numberOfFilmAction()
+    {       
+        $em = $this->getDoctrine()->getManager();
+        $genres = $em->getRepository('AppBundle:Genre')->findNumberOfFilmInGenre();
+
+        return $this->render('genre/footer.html.twig', array(
+            'genres' => $genres,
+        ));
+    }
 
     /**
      * Creates a new genre entity.
@@ -88,7 +98,7 @@ class GenreController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('genre_edit', array('id' => $genre->getId()));
+            return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
         }
 
         return $this->render('genre/edit.html.twig', array(

@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Repository\FilmRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Film
@@ -16,6 +16,8 @@ class Film
     /**
      * @var string
      *
+     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="titre", type="text", length=255, nullable=false)
      */
     private $titre;

@@ -88,7 +88,7 @@ class ActeurController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('acteur_edit', array('id' => $acteur->getId()));
+            return $this->redirectToRoute('acteur_show', array('id' => $acteur->getId()));
         }
 
         return $this->render('acteur/edit.html.twig', array(
