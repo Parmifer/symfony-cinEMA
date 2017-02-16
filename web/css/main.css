@@ -56,6 +56,27 @@ body > .container {
     text-decoration: none;
 }
 
-/* transition: all 0.3s ease-in-out; */
+.cinema-bouton-page {
+    height: 70px;
+}
+
+.cinema-bouton-page > form {
+    /*position: absolute;
+    bottom: 0;
+    right: 15px;*/
+    height: 100%;
+    width: 100%;
+}
+
+.cinema-bouton-page > form > button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    height: 40px;
+    width: 40px;
+}
+
+
+
 
 
