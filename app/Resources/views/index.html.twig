@@ -4,39 +4,31 @@
 
 {% block body %}
 <h1>Accueil</h1>
-<p>Bonjour et bienvenue !</p>
-<p>Voici les films les plus récents :</p>
-<table>
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Synopsis</th>
-                <th>Durée</th>
-                <th>Date de sortie</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="panel panel-default">
+    <div class="panel-heading">À l'affiche</div>
+    <div class="panel-body">
         {% for film in films %}
-            <tr>
-                <td><a href="{{ path('film_show', { 'id': film.id }) }}">{{ film.titre }}</a></td>
-                <td>{{ film.synopsis }}</td>
-                <td>{% if film.duree %}{{ film.duree|date('H:i:s') }}{% endif %}</td>
-                <td>{% if film.dateSortie %}{{ film.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ film.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('film_show', { 'id': film.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('film_edit', { 'id': film.id }) }}">Éditer</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+        <a href="{{ path('film_show', { 'id': film.id }) }}" class="cinema-lien-tuile">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <div class="thumbnail cinema-ajouter-film">
+                    <img src="{{ film.titre }}" alt="Affiche de {{ film.titre }}">
+                    <div class="caption">
+                        {% if film.duree %}
+                        <span class="label label-info">{{ film.duree | date('H') }}h{% if film.duree | date('i') != 0 %}{{ film.duree | date('i') }}{% endif %}</span>
+                        {% endif %}
+                        {% if film.dateSortie %}<span class="label label-info">{{ film.dateSortie | date('Y') }}</span>{% endif %}
+                        
+                        <h3>{{ film.titre }}</h3>
+                        <p class="cinema-films-courte-description">{{ film.synopsis | slice(0, 400) | raw }}...</p>
+                        <p>
+                            <a href="{{ path('film_edit', { 'id': film.id }) }}" class="btn btn-primary" role="button">Éditer</a> 
+                            <a href="{{ path('film_show', { 'id': film.id }) }}" class="btn btn-default" role="button">Plus d'infos...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
+</div>
 {% endblock %}
