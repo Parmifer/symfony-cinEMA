@@ -32,7 +32,7 @@ class Film
      * @var string 
      * 
      * @Gedmo\Slug(fields={"titre"}, updatable=false, separator="-")
-     * @ORM\Column(name="slug", type="text", length=255, nullable = true)
+     * @ORM\Column(name="slug", type="text", length=255, nullable=true)
      */
     private $slug;
     
@@ -48,7 +48,14 @@ class Film
      * @ORM\Column(name="synopsis", type="text", length=65535, nullable=true)
      */
     private $synopsis;
-
+    
+    /**
+     * @var string 
+     * 
+     * @ORM\Column(name="affiche_url", type="text", length=255, nullable=true)
+     */
+    private $afficheUrl;
+    
     /**
      * @var \DateTime
      *
@@ -187,6 +194,28 @@ class Film
         return $this->synopsis;
     }
 
+    /**
+     * Get afficheUrl
+     *
+     * @return string
+     */
+    function getAfficheUrl() 
+    {
+        return $this->afficheUrl;
+    }
+
+    /**
+     * Set afficheUrl
+     *
+     * @param string $afficheUrl
+     * 
+     * @return Film
+     */
+    function setAfficheUrl($afficheUrl) 
+    {
+        $this->afficheUrl = $afficheUrl;
+    }
+        
     /**
      * Set duree
      *

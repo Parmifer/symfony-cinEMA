@@ -38,6 +38,9 @@ class FilmType extends AbstractType
             ->add('extActeur', null, [
                 'label' => 'Acteur(s)', 
             ])
+            ->add('afficheUrl', TextType::Class, [
+                'label' => 'Url de l\'affiche'
+            ])
             ->add('synopsis', TextareaType::Class, [
                 'label' => 'Synopsis', 
             ]);
