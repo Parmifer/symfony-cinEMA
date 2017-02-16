@@ -76,7 +76,10 @@ body > .container {
     width: 40px;
 }
 
-
+.cinema-affiche-container > img {
+    max-width: 100%;
+    
+}
 
 
 
