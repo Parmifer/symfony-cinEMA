@@ -30,3 +30,32 @@ body > .container {
 .cinema-createur > .thumbnail {
     height: 100%;
 }
+
+.cinema-films-courte-description {
+    height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+}
+
+.cinema-ajouter-film {
+    transition: all 0.3s ease-in-out;
+}
+
+.cinema-ajouter-film:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.cinema-lien-tuile {
+    color: #515151;
+    display: block;
+}
+
+.cinema-lien-tuile:hover {
+    color: #515151;
+    text-decoration: none;
+}
+
+/* transition: all 0.3s ease-in-out; */
+
+
