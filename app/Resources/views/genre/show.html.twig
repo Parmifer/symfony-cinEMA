@@ -21,7 +21,7 @@
             <a href="{{ path('genre_index') }}">Revenir à la liste</a>
         </li>
         <li>
-            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">Éditer</a>
+            <a href="{{ path('genre_edit', { 'slug': genre.slug }) }}">Éditer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

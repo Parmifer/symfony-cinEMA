@@ -49,7 +49,7 @@ class FilmController extends Controller
             $em->persist($film);
             $em->flush($film);
 
-            return $this->redirectToRoute('film_show', array('id' => $film->getId()));
+            return $this->redirectToRoute('film_show', array('slug' => $film->getSlug()));
         }
 
         return $this->render('film/new.html.twig', array(
@@ -89,7 +89,7 @@ class FilmController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('film_show', array('id' => $film->getId()));
+            return $this->redirectToRoute('film_show', array('slug' => $film->getSlug()));
         }
 
         return $this->render('film/edit.html.twig', array(

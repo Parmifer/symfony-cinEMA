@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Genre
@@ -27,8 +28,14 @@ class Genre
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
-
+    
+    /**
+     * @var string 
+     * 
+     * @Gedmo\Slug(fields={"libelle"}, updatable=false, separator="-")
+     * @ORM\Column(name="slug", type="text", length=255, nullable=true)
+     */
+    private $slug;
 
     /**
      * Set libelle
@@ -64,6 +71,28 @@ class Genre
         return $this->id;
     }
     
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    function getSlug() 
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Genre
+     */
+    function setSlug($slug) 
+    {
+        $this->slug = $slug;
+    }
+        
     /**
      * Retourne une chaine correspondant au genre de l'objet courrant.
      * 

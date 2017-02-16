@@ -14,15 +14,15 @@
         <tbody>
         {% for genre in genres %}
             <tr>
-                <td><a href="{{ path('genre_show', { 'id': genre.id }) }}">{{ genre.libelle }}</a></td>
+                <td><a href="{{ path('genre_show', { 'slug': genre.slug }) }}">{{ genre.libelle }}</a></td>
                 <td>{{ genre.id }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('genre_show', { 'id': genre.id }) }}">Voir</a>
+                            <a href="{{ path('genre_show', { 'slug': genre.slug }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">Éditer</a>
+                            <a href="{{ path('genre_edit', { 'slug': genre.slug }) }}">Éditer</a>
                         </li>
                     </ul>
                 </td>

@@ -58,7 +58,7 @@ class GenreController extends Controller
             $em->persist($genre);
             $em->flush($genre);
 
-            return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
+            return $this->redirectToRoute('genre_show', array('slug' => $genre->getSlug()));
         }
 
         return $this->render('genre/new.html.twig', array(
@@ -70,7 +70,7 @@ class GenreController extends Controller
     /**
      * Finds and displays a genre entity.
      *
-     * @Route("/{id}", name="genre_show")
+     * @Route("/{slug}", name="genre_show")
      * @Method("GET")
      */
     public function showAction(Genre $genre)
@@ -86,7 +86,7 @@ class GenreController extends Controller
     /**
      * Displays a form to edit an existing genre entity.
      *
-     * @Route("/{id}/edition", name="genre_edit")
+     * @Route("/{slug}/edition", name="genre_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Genre $genre)
@@ -98,7 +98,7 @@ class GenreController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
+            return $this->redirectToRoute('genre_show', array('slug' => $genre->getSlug()));
         }
 
         return $this->render('genre/edit.html.twig', array(
@@ -111,7 +111,7 @@ class GenreController extends Controller
     /**
      * Deletes a genre entity.
      *
-     * @Route("/{id}", name="genre_delete")
+     * @Route("/{slug}", name="genre_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Genre $genre)
@@ -138,7 +138,7 @@ class GenreController extends Controller
     private function createDeleteForm(Genre $genre)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('genre_delete', array('id' => $genre->getId())))
+            ->setAction($this->generateUrl('genre_delete', array('slug' => $genre->getSlug())))
             ->setMethod('DELETE')
             ->getForm()
         ;
