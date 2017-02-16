@@ -61,7 +61,7 @@ class FilmController extends Controller
     /**
      * Finds and displays a film entity.
      *
-     * @Route("/{id}", name="film_show")
+     * @Route("/{slug}", name="film_show")
      * @Method("GET")
      */
     public function showAction(Film $film)
@@ -77,7 +77,7 @@ class FilmController extends Controller
     /**
      * Displays a form to edit an existing film entity.
      *
-     * @Route("/{id}/edition", name="film_edit")
+     * @Route("/{slug}/edition", name="film_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Film $film)
@@ -102,7 +102,7 @@ class FilmController extends Controller
     /**
      * Deletes a film entity.
      *
-     * @Route("/{id}", name="film_delete")
+     * @Route("/{slug}", name="film_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Film $film)
@@ -129,7 +129,7 @@ class FilmController extends Controller
     private function createDeleteForm(Film $film)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('film_delete', array('id' => $film->getId())))
+            ->setAction($this->generateUrl('film_delete', array('slug' => $film->getSlug())))
             ->setMethod('DELETE')
             ->getForm()
         ;

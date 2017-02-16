@@ -2,7 +2,6 @@
 
 {% block body %}
     <h1>Film</h1>
-
     <div class="jumbotron">
         <div class="container">
             <div class="col-lg-4"></div>
@@ -31,7 +30,7 @@
                     <p><div class="text-muted">{{ film.synopsis | raw }}</div></p>
                 </div></div>
             </div>
-            <p><a class="btn btn-default btn-lg" href="{{ path('film_edit', { 'id': film.id }) }}" role="button">Éditer</a></p>
+            <p><a class="btn btn-default btn-lg" href="{{ path('film_edit', { 'slug': film.slug }) }}" role="button">Éditer</a></p>
         </div>
     </div>
 {% endblock %}
