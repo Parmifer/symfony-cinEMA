@@ -16,7 +16,9 @@
                 <div class="thumbnail cinema-ajouter-film">
                     <img src="{{ film.titre }}" alt="Affiche de {{ film.titre }}">
                     <div class="caption">
-                        {% if film.duree %}<span class="label label-info">{{ film.duree | date('H:i:s') }}</span>{% endif %}
+                        {% if film.duree %}
+                        <span class="label label-info">{{ film.duree | date('H') }}h{% if film.duree | date('i') != 0 %}{{ film.duree | date('i') }}{% endif %}</span>
+                        {% endif %}
                         {% if film.dateSortie %}<span class="label label-info">{{ film.dateSortie | date('Y') }}</span>{% endif %}
                         
                         <h3>{{ film.titre }}</h3>
