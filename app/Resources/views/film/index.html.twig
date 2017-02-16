@@ -1,45 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Liste des films</h1>
-
-    <table>
-        <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Synopsis</th>
-                <th>Durée</th>
-                <th>Date de sortie</th>
-                <th>Id</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <h1>Tous les films</h1>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
+                <div class="thumbnail cinema-ajouter-film">
+                    <img src="http://img11.hostingpics.net/pics/204861add.png" alt="Ajouter un film">
+                </div>
+            </a>
+        </div>
         {% for film in films %}
-            <tr>
-                <td><a href="{{ path('film_show', { 'id': film.id }) }}">{{ film.titre }}</a></td>
-                <td>{{ film.synopsis }}</td>
-                <td>{% if film.duree %}{{ film.duree|date('H:i:s') }}{% endif %}</td>
-                <td>{% if film.dateSortie %}{{ film.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ film.id }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('film_show', { 'id': film.id }) }}">Voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('film_edit', { 'id': film.id }) }}">Éditer</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+        <a href="{{ path('film_show', { 'id': film.id }) }}" class="cinema-lien-tuile">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <div class="thumbnail cinema-ajouter-film">
+                    <img src="{{ film.titre }}" alt="Affiche de {{ film.titre }}">
+                    <div class="caption">
+                        {% if film.duree %}<span class="label label-info">{{ film.duree | date('H:i:s') }}</span>{% endif %}
+                        {% if film.dateSortie %}<span class="label label-info">{{ film.dateSortie | date('Y') }}</span>{% endif %}
+                        
+                        <h3>{{ film.titre }}</h3>
+                        <p class="cinema-films-courte-description">{{ film.synopsis | slice(0, 400) | raw }}...</p>
+                        <p>
+                            <a href="{{ path('film_edit', { 'id': film.id }) }}" class="btn btn-primary" role="button">Éditer</a> 
+                            <a href="{{ path('film_show', { 'id': film.id }) }}" class="btn btn-default" role="button">Plus d'infos...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('film_new') }}">Créer un nouveau film</a>
-        </li>
-    </ul>
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
+                <div class="thumbnail cinema-ajouter-film">
+                    <img src="http://img11.hostingpics.net/pics/204861add.png" alt="Ajouter un film">
+                </div>
+            </a>
+        </div>
+    </div>
 {% endblock %}
