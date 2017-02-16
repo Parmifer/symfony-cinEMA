@@ -2,43 +2,35 @@
 
 {% block body %}
     <h1>Film</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Titre</th>
-                <td>{{ film.titre }}</td>
-            </tr>
-            <tr>
-                <th>Synopsis</th>
-                <td>{{ film.synopsis }}</td>
-            </tr>
-            <tr>
-                <th>Durée</th>
-                <td>{% if film.duree %}{{ film.duree|date('H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Date de sortie</th>
-                <td>{% if film.dateSortie %}{{ film.dateSortie|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ film.id }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('film_index') }}">Revenir à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('film_edit', { 'slug': film.slug }) }}">Éditer</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8">
+                <h2>{{ film.titre }}</h2>
+                <p>
+                    {% if film.duree %}
+                    <span class="label label-info">{{ film.duree | date('H') }}h{% if film.duree | date('i') != 0 %}{{ film.duree | date('i') }}{% endif %}</span>
+                    {% endif %}
+                    {% if film.dateSortie %}<span class="label label-info">{{ film.dateSortie | date('Y') }}</span>{% endif %}
+                </p>
+                <hr>
+                <p><strong>Réalisateur</strong> {{ film.extRealisateur }}</p>
+                <hr>
+                <p>
+                    <strong>Acteurs</strong>
+                    {% for acteur in film.extActeur %}
+                    <p>
+                        {{ acteur }}
+                    </p>
+                    {% endfor %}
+                </p>
+                <hr>
+                <p><strong>Synopsis</strong></p>
+                <div class="panel panel-default"><div class="panel-body">
+                    <p><div class="text-muted">{{ film.synopsis | raw }}</div></p>
+                </div></div>
+            </div>
+            <p><a class="btn btn-default btn-lg" href="{{ path('film_edit', { 'slug': film.slug }) }}" role="button">Éditer</a></p>
+        </div>
+    </div>
 {% endblock %}
