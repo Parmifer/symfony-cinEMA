@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Realisateur</h1>
+    <h1>Réalisateur</h1>
 
     <table>
         <tbody>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <td>{{ realisateur.prenom }}</td>
             </tr>
             <tr>
@@ -22,14 +22,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('realisateur_index') }}">Back to the list</a>
+            <a href="{{ path('realisateur_index') }}">Revenir à la liste</a>
         </li>
         <li>
-            <a href="{{ path('realisateur_edit', { 'id': realisateur.id }) }}">Edit</a>
+            <a href="{{ path('realisateur_edit', { 'id': realisateur.id }) }}">Éditer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

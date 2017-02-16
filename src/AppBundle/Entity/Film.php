@@ -280,4 +280,13 @@ class Film
     {
         return $this->extActeur;
     }
+    
+    /**
+     * Retourne une chaine correspondant au titre de l'objet courrant.
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->titre;
+    }
 }

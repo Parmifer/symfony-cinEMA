@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Realisateurs list</h1>
+    <h1>Liste des réalisateurs</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <th>Nom</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -21,10 +21,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('realisateur_show', { 'id': realisateur.id }) }}">show</a>
+                            <a href="{{ path('realisateur_show', { 'id': realisateur.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('realisateur_edit', { 'id': realisateur.id }) }}">edit</a>
+                            <a href="{{ path('realisateur_edit', { 'id': realisateur.id }) }}">Éditer</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('realisateur_new') }}">Create a new realisateur</a>
+            <a href="{{ path('realisateur_new') }}">Créer un nouveau réalisateur</a>
         </li>
     </ul>
 {% endblock %}

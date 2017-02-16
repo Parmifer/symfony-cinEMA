@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Genres list</h1>
+    <h1>Liste des genres</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Libelle</th>
+                <th>Libellé</th>
                 <th>Id</th>
                 <th>Actions</th>
             </tr>
@@ -19,10 +19,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('genre_show', { 'id': genre.id }) }}">show</a>
+                            <a href="{{ path('genre_show', { 'id': genre.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">edit</a>
+                            <a href="{{ path('genre_edit', { 'id': genre.id }) }}">Éditer</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +33,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('genre_new') }}">Create a new genre</a>
+            <a href="{{ path('genre_new') }}">Créer un nouveau genre</a>
         </li>
     </ul>
 {% endblock %}
