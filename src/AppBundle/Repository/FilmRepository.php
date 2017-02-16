@@ -13,4 +13,9 @@ class FilmRepository extends EntityRepository
             ->setMaxResults(3)
             ->getResult();
     }
+    
+    public function findAll()
+    {
+        return $this->findBy(array(), array('titre' => 'ASC'));
+    }
 }
