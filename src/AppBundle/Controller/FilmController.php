@@ -89,7 +89,7 @@ class FilmController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('film_edit', array('id' => $film->getId()));
+            return $this->redirectToRoute('film_show', array('id' => $film->getId()));
         }
 
         return $this->render('film/edit.html.twig', array(

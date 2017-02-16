@@ -88,7 +88,7 @@ class RealisateurController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('realisateur_edit', array('id' => $realisateur->getId()));
+            return $this->redirectToRoute('realisateur_show', array('id' => $realisateur->getId()));
         }
 
         return $this->render('realisateur/edit.html.twig', array(

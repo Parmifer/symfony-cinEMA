@@ -98,7 +98,7 @@ class GenreController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('genre_edit', array('id' => $genre->getId()));
+            return $this->redirectToRoute('genre_show', array('id' => $genre->getId()));
         }
 
         return $this->render('genre/edit.html.twig', array(
