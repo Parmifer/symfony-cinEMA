@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Form\FilmType;
 
 /**
  * Film controller.
@@ -41,7 +42,7 @@ class FilmController extends Controller
     public function newAction(Request $request)
     {
         $film = new Film();
-        $form = $this->createForm('AppBundle\Form\FilmType', $film);
+        $form = $this->createForm(FilmType::class, $film);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,7 +54,7 @@ class FilmController extends Controller
         }
 
         return $this->render('film/new.html.twig', array(
-            'film' => $film,
+            //'film' => $film,
             'form' => $form->createView(),
         ));
     }
