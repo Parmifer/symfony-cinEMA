@@ -22,7 +22,9 @@ class FilmType extends AbstractType
                 'label' => 'Titre',
             ])
             ->add('dateSortie', DateType::Class, [
-                'label' => 'Date de sortie', 
+                'label' => 'Date de sortie',
+                'format' => 'dd MMMM yyyy',
+                'years' => range(date('1800'), date('Y') + 5),
             ])
             ->add('duree', TimeType::Class, [
                 'label' => 'Durée', 
