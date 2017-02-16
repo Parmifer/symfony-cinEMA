@@ -3,12 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Repository\FilmRepository;
 
 /**
  * Film
  *
  * @ORM\Table(name="film", indexes={@ORM\Index(name="ext_realisateur_id", columns={"ext_realisateur_id"}), @ORM\Index(name="ext_genre_id", columns={"ext_genre_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FilmRepository")
  */
 class Film
 {
@@ -72,7 +73,15 @@ class Film
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Acteur", mappedBy="extFilm")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Acteur", inversedBy="extFilm")
+     * @ORM\JoinTable(name="acteur_jouer_film",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="ext_film_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="ext_acteur_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $extActeur;
 
@@ -271,5 +280,14 @@ class Film
     public function getExtActeur()
     {
         return $this->extActeur;
+    }
+    
+    /**
+     * Retourne une chaine correspondant au titre de l'objet courrant.
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->titre;
     }
 }

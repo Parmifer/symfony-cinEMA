@@ -3,12 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Repository\FilmRepository;
 
 /**
  * Film
  *
  * @ORM\Table(name="film", indexes={@ORM\Index(name="ext_realisateur_id", columns={"ext_realisateur_id"}), @ORM\Index(name="ext_genre_id", columns={"ext_genre_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FilmRepository")
  */
 class Film
 {

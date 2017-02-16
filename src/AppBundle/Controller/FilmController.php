@@ -24,7 +24,6 @@ class FilmController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $films = $em->getRepository('AppBundle:Film')->findAll();
 
         return $this->render('film/index.html.twig', array(

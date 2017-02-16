@@ -94,4 +94,13 @@ class Realisateur
     {
         return $this->id;
     }
+    
+    /**
+     * Retourne une chaine correspondant au réalisateur de l'objet courrant.
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->prenom . ' ' . $this->nom;
+    }
 }

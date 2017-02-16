@@ -12,22 +12,19 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('index.html.twig', [
-            
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $films = $em->getRepository('AppBundle:Film')->findMostRecent();
+
+        return $this->render('index.html.twig', array(
+            'films' => $films,
+        ));
     }
     
     /**
      * @Route("/a-propos", name="aPropos")
      */
     public function aProposAction()
-    {             
-        $createurs = [
-            'Yann BUTSCHER',
-            'Lucile DECROZANT-TRIQUENAUX'
-        ];
-        
-        
+    {  
         $createurs = [
             [
                 'nom'           => 'Yann BUTSCHER',
