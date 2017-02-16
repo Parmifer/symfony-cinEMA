@@ -6,11 +6,11 @@ use Doctrine\ORM\EntityRepository;
 
 class FilmRepository extends EntityRepository
 {
-    public function findMostRecent()
-    {
+    public function findMostRecent($quantiteFilmAccueil)
+    {   
         return $this->getEntityManager()
             ->createQuery('SELECT f FROM AppBundle:Film f ORDER BY f.dateSortie DESC')
-            ->setMaxResults(3)
+            ->setMaxResults($quantiteFilmAccueil)
             ->getResult();
     }
     

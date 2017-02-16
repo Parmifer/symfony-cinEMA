@@ -13,7 +13,8 @@ class MainController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $films = $em->getRepository('AppBundle:Film')->findMostRecent();
+        $quantiteFilmAccueil = $this->getParameter('quantite_film_accueil');
+        $films = $em->getRepository('AppBundle:Film')->findMostRecent($quantiteFilmAccueil);
 
         return $this->render('index.html.twig', array(
             'films' => $films,

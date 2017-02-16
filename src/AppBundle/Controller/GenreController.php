@@ -30,6 +30,16 @@ class GenreController extends Controller
             'genres' => $genres,
         ));
     }
+    
+    public function numberOfFilmAction()
+    {       
+        $em = $this->getDoctrine()->getManager();
+        $genres = $em->getRepository('AppBundle:Genre')->findNumberOfFilmInGenre();
+
+        return $this->render('genre/footer.html.twig', array(
+            'genres' => $genres,
+        ));
+    }
 
     /**
      * Creates a new genre entity.
