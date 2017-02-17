@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    margin-bottom: 130px;
+    margin-bottom: 160px;
 }
 
 .footer {
@@ -38,11 +38,12 @@ body > .container {
     text-align: justify;
 }
 
-.cinema-ajouter-film {
+.cinema-tuile-film {
+    height: 606px; 
     transition: all 0.3s ease-in-out;
 }
 
-.cinema-ajouter-film:hover {
+.cinema-tuile-film:hover {
     transform: scale(1.1, 1.1);
 }
 
@@ -54,6 +55,10 @@ body > .container {
 .cinema-lien-tuile:hover {
     color: #515151;
     text-decoration: none;
+}
+
+.cinema-lien-tuile > img {
+    max-height: 250px;
 }
 
 .cinema-bouton-page {
