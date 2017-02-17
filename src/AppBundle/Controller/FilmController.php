@@ -3,11 +3,13 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Film;
+use AppBundle\Form\FilterData;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\FilmType;
+use AppBundle\Form\FiltreGenreType;
 
 /**
  * Film controller.
@@ -20,17 +22,54 @@ class FilmController extends Controller
      * Lists all film entities.
      *
      * @Route("/", name="film_index")
-     * @Method("GET")
+     * @Method({"GET", "POST"})
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $films = $em->getRepository('AppBundle:Film')->findAll();
+        
+        $filterData = new FilterData();
+        $form = $this->createForm(FiltreGenreType::Class, $filterData);
+        $form->handleRequest($request);
 
+        // Est-ce que mon form a été soumis et est-ce qu'il est valide ?
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $genre = $filterData->getGenre();
+            $films = $em->getRepository('AppBundle:Film')->findByGenre($genre->getSlug());
+            
+            return $this->render('film/index.html.twig', array(
+                'films' => $films,
+                'genre' => $genre,
+                'form' => $form->createView()
+            ));
+        }
+        
+        $films = $em->getRepository('AppBundle:Film')->findAll();
         return $this->render('film/index.html.twig', array(
             'films' => $films,
+            'form' => $form->createView()
         ));
     }
+    
+    /**
+     * Lists all film entities with the given genre.
+     *
+     * @Route("/par-genre/{slug}", name="film_genre")
+     * @Method("GET")
+     */
+    public function showByGenreAction($slug, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $films = $em->getRepository('AppBundle:Film')->findByGenre($slug);
+        $genre = $em->getRepository('AppBundle:Genre')->findOneBySlug($slug);
+
+        return $this->render('film/par_genre.html.twig', array(
+            'films' => $films,
+            'genre' => $genre
+        ));
+    }
+    
 
     /**
      * Creates a new film entity.

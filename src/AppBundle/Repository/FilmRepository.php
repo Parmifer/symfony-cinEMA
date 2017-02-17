@@ -14,6 +14,18 @@ class FilmRepository extends EntityRepository
             ->getResult();
     }
     
+    public function findByGenre($slug)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT f '
+                    . 'FROM AppBundle:Film f '
+                    . 'JOIN f.extGenre g '
+                    . 'WHERE g.slug = :slug '
+                    . 'ORDER BY f.titre ASC')
+            ->setParameter('slug', $slug)
+            ->getResult();
+    }
+    
     public function findAll()
     {
         return $this->findBy(array(), array('titre' => 'ASC'));

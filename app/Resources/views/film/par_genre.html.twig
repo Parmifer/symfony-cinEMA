@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if genre is defined %}
+        <h1>{{ genre.libelle }}</h1>
+    {% endif %}      
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
+                <div class="thumbnail cinema-ajouter-film cinema-tuile-film">
+                    <img src="http://img15.hostingpics.net/pics/212809add.png" alt="Ajouter un film">
+                </div>
+            </a>
+        </div>
+        {% for film in films %}
+        <a href="{{ path('film_show', { 'slug': film.slug }) }}" class="cinema-lien-tuile">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <div class="thumbnail cinema-tuile-film">
+                    <img src="{{ film.afficheUrl }}" alt="Affiche de {{ film.titre }}">
+                    <div class="caption">
+                        {% if film.duree %}
+                        <span class="label label-info">{{ film.duree | date('H') }}h{% if film.duree | date('i') != 0 %}{{ film.duree | date('i') }}{% endif %}</span>
+                        {% endif %}
+                        {% if film.dateSortie %}<span class="label label-info">{{ film.dateSortie | date('Y') }}</span>{% endif %}
+                        
+                        <h3>{{ film.titre }}</h3>
+                        <p class="cinema-films-courte-description">{{ film.synopsis | slice(0, 400) | raw }}...</p>
+                        <p>
+                            <a href="{{ path('film_edit', { 'slug': film.slug }) }}" class="btn btn-primary" role="button">Éditer</a> 
+                            <a href="{{ path('film_show', { 'slug': film.slug }) }}" class="btn btn-default" role="button">Plus d'infos...</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+            <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
+                <div class="thumbnail cinema-ajouter-film cinema-tuile-film">
+                    <img src="http://img15.hostingpics.net/pics/212809add.png" alt="Ajouter un film">
+                </div>
+            </a>
+        </div>
+    </div>    
+{% endblock %}
