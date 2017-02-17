@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
             <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
-                <div class="thumbnail cinema-ajouter-film">
-                    <img src="http://img11.hostingpics.net/pics/204861add.png" alt="Ajouter un film">
+                <div class="thumbnail cinema-ajouter-film cinema-tuile-film">
+                    <img src="http://img15.hostingpics.net/pics/212809add.png" alt="Ajouter un film">
                 </div>
             </a>
         </div>
         {% for film in films %}
         <a href="{{ path('film_show', { 'slug': film.slug }) }}" class="cinema-lien-tuile">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                <div class="thumbnail cinema-ajouter-film">
-                    <img src="{{ film.titre }}" alt="Affiche de {{ film.titre }}">
+                <div class="thumbnail cinema-tuile-film">
+                    <img src="{{ film.afficheUrl }}" alt="Affiche de {{ film.titre }}">
                     <div class="caption">
                         {% if film.duree %}
                         <span class="label label-info">{{ film.duree | date('H') }}h{% if film.duree | date('i') != 0 %}{{ film.duree | date('i') }}{% endif %}</span>
@@ -34,8 +34,8 @@
         {% endfor %}
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
             <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
-                <div class="thumbnail cinema-ajouter-film">
-                    <img src="http://img11.hostingpics.net/pics/204861add.png" alt="Ajouter un film">
+                <div class="thumbnail cinema-ajouter-film cinema-tuile-film">
+                    <img src="http://img15.hostingpics.net/pics/212809add.png" alt="Ajouter un film">
                 </div>
             </a>
         </div>
