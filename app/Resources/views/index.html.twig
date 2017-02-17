@@ -8,7 +8,7 @@
     <div class="panel-heading">À l'affiche</div>
     <div class="panel-body">
         {% for film in films %}
-        <a href="{{ path('film_show', { 'id': film.id }) }}" class="cinema-lien-tuile">
+        <a href="{{ path('film_show', { 'slug': film.slug }) }}" class="cinema-lien-tuile">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
                 <div class="thumbnail cinema-ajouter-film">
                     <img src="{{ film.titre }}" alt="Affiche de {{ film.titre }}">
