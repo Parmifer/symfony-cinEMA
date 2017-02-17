@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tous les films</h1>
+    {% if genre is not defined %}
+        <h1>Tous les films</h1>
+    {% else %}
+        <h1>{{ genre.libelle }}</h1>
+    {% endif %}  
+    {{ form_start(form, { 'attr': {'class': 'form-inline'} }) }}
+        {{ form_widget(form, { 'attr': {'class': 'col-lg-4 col-md-4 col-sm-12 col-xs-12'} }) }}        
+    {{ form_end(form) }}
+    <p><a href="{{ path('film_index') }}" class="btn btn-danger" role="button">Supprimer le filtre</a></p>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
             <a href="{{ path('film_new') }}" title="Ajouter un nouveau film">
@@ -39,5 +47,5 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div>    
 {% endblock %}

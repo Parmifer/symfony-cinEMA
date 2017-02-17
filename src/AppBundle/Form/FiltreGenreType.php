@@ -4,9 +4,11 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-class ActeurType extends AbstractType
+
+class FiltreGenreType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,17 +16,22 @@ class ActeurType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prenom', TextType::Class, ['label' => 'Prénom'])
-            ->add('nom', TextType::Class, ['label' => 'Nom']);
+            ->add('genre', EntityType::Class, [
+                'label' => 'Genre',
+                'choice_label' => 'libelle',
+                'choice_value' => 'slug',
+                'class' => 'AppBundle:Genre'
+            ])
+            ->add('filter', SubmitType::Class, ['label' => 'Filtrer']);
     }
-    
+        
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Acteur'
+            'data_class' => 'AppBundle\Form\FilterData'
         ));
     }
 
@@ -33,6 +40,6 @@ class ActeurType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_acteur';
+        return 'appbundle_filter_data';
     }
 }
